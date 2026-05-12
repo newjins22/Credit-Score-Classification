@@ -1,14 +1,19 @@
 # Credit Score Classification with TabNet
 
+
 ### 프로젝트 개요
 
 본 프로젝트는 고객의 금융 활동 데이터를 바탕으로 신용 등급(Good, Standard, Poor)을 분류하는 딥러닝 모델을 구축하는 것을 목표로 합니다. 단순한 성능 수치보다는 데이터 전처리의 인과 관계, EDA를 통한 변수 해석, 모델 선택의 타당성에 초점을 맞추어 진행되었습니다.
+
+
 
 ### 주요 목표
 
 1. 데이터 이해: EDA를 통해 신용 등급을 결정짓는 핵심 지표 발굴
 2. 성능 개선: 정형 데이터 특화 모델인 TabNet 도입 및 하이퍼파라미터 최적화
 3. 설명력 강화: 파생 변수 생성 및 인코딩 전략의 논리적 근거 제시
+
+
 
 ### EDA (Exploratory Data Analysis)
 
@@ -22,6 +27,8 @@
 <img width="1389" height="985" alt="image" src="https://github.com/user-attachments/assets/8c466c70-15b2-4532-ae6f-00f946aeafe1" />
 
 
+
+
 ### 데이터 전처리 및 피처 엔지니어링
 
 1. 식별자 제거: 예측에 무의미한 ID, Name, SSN 등의 컬럼 제거
@@ -32,6 +39,8 @@
 * loan_count: 쉼표로 구분된 대출 종류 텍스트를 수치화하여 대출 규모 정보 보존
 
 3. 인코딩 최적화: 범주형 변수를 One-Hot Encoding으로 처리하여 TabNet이 변수 간의 수치적 서열 오해 없이 비선형 관계를 학습하도록 유도
+
+
 
 ### 모델링: TabNet (Deep Learning)
 
@@ -48,6 +57,8 @@
 * Scheduler: CosineAnnealingLR을 통한 학습률 최적화
 * Class Weights: 타겟 불균형 해소를 위해 손실 함수에 가중치 부여
 * Regularization: Patience=15 설정을 통한 Early Stopping 적용
+
+
 
 ### 성능 결과 (Validation Score)
 
@@ -67,6 +78,8 @@
 ```
 
 * 해석: 클래스 불균형에도 불구하고 weights 조정을 통해 상대적으로 비중이 적은 Good과 Poor 클래스의 재현율(Recall)을 각각 89%, 90%까지 확보했습니다.
+
+
 
 ### 개선사항 및 결론
 
